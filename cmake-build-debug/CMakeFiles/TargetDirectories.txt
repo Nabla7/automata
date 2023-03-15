@@ -1,0 +1,3 @@
+/Users/pimvandenbosch/Desktop/UA/talen en automaten/code/cmake-build-debug/CMakeFiles/code.dir
+/Users/pimvandenbosch/Desktop/UA/talen en automaten/code/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pimvandenbosch/Desktop/UA/talen en automaten/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
