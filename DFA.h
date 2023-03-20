@@ -18,8 +18,10 @@ public:
     bool accepts(const string& input);
     string transition(const string current_state,
                       const string input);
+    int print();
 
 private:
+    json json_dfa;
     json states;
     unordered_set<string> accepting_states;
     json transitions;

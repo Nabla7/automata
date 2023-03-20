@@ -6,6 +6,7 @@
 #include "json.hpp"
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 using json = nlohmann::json;
@@ -14,10 +15,9 @@ using json = nlohmann::json;
 DFA::DFA(const std::string& input) {
     ifstream json_file(input);
 
-    json j;
-    json_file >> j;
+    json_file >> json_dfa;
 
-    states = j["states"];
+    states = json_dfa["states"];
     for (json state : states) {
         if (state["starting"] == true){
             start_state = state["name"];
@@ -28,7 +28,12 @@ DFA::DFA(const std::string& input) {
         }
     }
 
-    transitions = j["transitions"];
+    transitions = json_dfa["transitions"];
+}
+
+int DFA::print(){
+    cout << setw(4) << json_dfa << endl;
+    return 0;
 }
 
 string DFA::transition(const string current_state, const string input){
