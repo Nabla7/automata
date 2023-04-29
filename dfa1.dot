@@ -2,10 +2,10 @@ digraph G {
     rankdir=LR;
     node [shape=circle];
     start [shape=none, label=""];
-    1 [shape=doublecircle];
-    2 -> 2 [label="x"];
-    0 -> 3 [label="x"];
-    1 -> 2 [label="x"];
-    3 -> 1 [label="x"];
-    start -> 0;
+    "1" [shape=doublecircle];
+    "2" -> "2" [label="x"];
+    "0" -> "3" [label="x"];
+    "1" -> "2" [label="x"];
+    "3" -> "1" [label="x"];
+    start -> "0";
 }

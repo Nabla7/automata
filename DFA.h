@@ -20,8 +20,6 @@ public:
 
     DFA(const DFA& dfa1, const DFA& dfa2, bool intersection);
 
-    std::set<std::string> alphabet;
-
     bool accepts(const string& input);
 
     string transition(const string current_state,
@@ -33,10 +31,12 @@ public:
 
 private:
     json json_dfa;
+    string type;
+    std::vector<string> alphabet;
     json states;
-    unordered_set<string> accepting_states;
     json transitions;
     string start_state;
+    unordered_set<string> accepting_states;
 };
 
 #endif //CODE_DFA_H
