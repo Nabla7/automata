@@ -1,0 +1,17 @@
+digraph G {
+    rankdir=LR;
+    node [shape=circle];
+    start [shape=none, label=""];
+    "{1}" [shape=doublecircle];
+    "{1}" -> "{4, 2, 3}" [label="e"];
+    "{1}" -> "{4, 2, 3}" [label="a"];
+    "{0}" -> "{1}" [label="e"];
+    "{0}" -> "{4, 2, 3}" [label="a"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="e"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="a"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="e"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="a"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="e"];
+    "{4, 2, 3}" -> "{4, 2, 3}" [label="a"];
+    start -> "{0}";
+}

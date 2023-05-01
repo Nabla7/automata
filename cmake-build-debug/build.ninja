@@ -58,6 +58,12 @@ build CMakeFiles/code.dir/DFA.cpp.o: CXX_COMPILER__code_Debug /Users/pimvandenbo
   OBJECT_DIR = CMakeFiles/code.dir
   OBJECT_FILE_DIR = CMakeFiles/code.dir
 
+build CMakeFiles/code.dir/NFA.cpp.o: CXX_COMPILER__code_Debug /Users/pimvandenbosch/Desktop/UA/talen$ en$ automaten/code/NFA.cpp || cmake_object_order_depends_target_code
+  DEP_FILE = CMakeFiles/code.dir/NFA.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/code.dir
+  OBJECT_FILE_DIR = CMakeFiles/code.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target code
@@ -66,7 +72,7 @@ build CMakeFiles/code.dir/DFA.cpp.o: CXX_COMPILER__code_Debug /Users/pimvandenbo
 #############################################
 # Link the executable code
 
-build code: CXX_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/main.cpp.o CMakeFiles/code.dir/DFA.cpp.o
+build code: CXX_EXECUTABLE_LINKER__code_Debug CMakeFiles/code.dir/main.cpp.o CMakeFiles/code.dir/DFA.cpp.o CMakeFiles/code.dir/NFA.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk
   OBJECT_DIR = CMakeFiles/code.dir
   POST_BUILD = :

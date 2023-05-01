@@ -1,0 +1,503 @@
+{
+  "tests": [
+              {
+                "name": "Single state",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a"],
+                  "states": [{"name": "0", "starting": true, "accepting": true}],
+                  "transitions": [{"from": "0", "to": "0", "input": "a"}]
+                }
+              },
+              {
+                "name": "All accepting states",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": true},
+                    {"name": "1", "starting": false, "accepting": true}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "No accepting states",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "Unreachable states",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": true},
+                    {"name": "2", "starting": false, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"},
+                    {"from": "2", "to": "2", "input": "a"},
+                    {"from": "2", "to": "2", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "No transitions",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": false}
+                  ],
+                  "transitions": []
+                }
+              },
+              {
+                "name": "Self-looping start state",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a"],
+                  "states": [{"name": "0", "starting": true, "accepting": false}],
+                  "transitions": [{"from": "0", "to": "0", "input": "a"}]
+                }
+              },
+              {
+                "name": "Multiple start states",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": true, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "Dead state",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": false},
+                    {"name": "2", "starting": false, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "2", "input": "b"},
+                    {"from": "2", "to": "2", "input": "a"},
+                    {"from": "2", "to": "2", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "Non-deterministic DFA",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": true, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "0", "to": "0", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "No start state",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": ["a", "b"],
+                  "states": [
+                    {"name": "0", "starting": false, "accepting": false},
+                    {"name": "1", "starting": false, "accepting": false}
+                  ],
+                  "transitions": [
+                    {"from": "0", "to": "1", "input": "a"},
+                    {"from": "1", "to": "0", "input": "b"}
+                  ]
+                }
+              },
+              {
+                "name": "Empty DFA",
+                "dfa": {
+                  "type": "DFA",
+                  "alphabet": [],
+                  "states": [],
+                  "transitions": []
+                }
+              },
+              {
+                "name": "Expected DFA for TFA test 1",
+                "dfa": {
+                  "alphabet": [
+                    "a",
+                    "e"
+                  ],
+                  "states": [
+                    {
+                      "accepting": false,
+                      "name": "{0}",
+                      "starting": true
+                    },
+                    {
+                      "accepting": true,
+                      "name": "{1}",
+                      "starting": false
+                    },
+                    {
+                      "accepting": false,
+                      "name": "{2, 3, 4}",
+                      "starting": false
+                    }
+                  ],
+                  "transitions": [
+                    {
+                      "from": "{0}",
+                      "input": "a",
+                      "to": "{2, 3, 4}"
+                    },
+                    {
+                      "from": "{0}",
+                      "input": "e",
+                      "to": "{1}"
+                    },
+                    {
+                      "from": "{1}",
+                      "input": "a",
+                      "to": "{2, 3, 4}"
+                    },
+                    {
+                      "from": "{1}",
+                      "input": "e",
+                      "to": "{2, 3, 4}"
+                    },
+                    {
+                      "from": "{2, 3, 4}",
+                      "input": "a",
+                      "to": "{2, 3, 4}"
+                    },
+                    {
+                      "from": "{2, 3, 4}",
+                      "input": "e",
+                      "to": "{2, 3, 4}"
+                    }
+                  ],
+                  "type": "DFA"
+                 }
+                },
+    {
+      "name": "Expected DFA after SCC",
+      "dfa": {
+        "type": "DFA",
+        "alphabet": [
+          "f",
+          "i"
+        ],
+        "states": [
+          {
+            "name": "{0,1,2}",
+            "starting": false,
+            "accepting": true
+          },
+          {
+            "name": "{0,2}",
+            "starting": false,
+            "accepting": false
+          },
+          {
+            "name": "{0}",
+            "starting": true,
+            "accepting": false
+          },
+          {
+            "name": "{1,2}",
+            "starting": false,
+            "accepting": true
+          },
+          {
+            "name": "{1}",
+            "starting": false,
+            "accepting": true
+          },
+          {
+            "name": "{2}",
+            "starting": false,
+            "accepting": false
+          }
+        ],
+        "transitions": [
+          {
+            "from": "{0,1,2}",
+            "to": "{0,1,2}",
+            "input": "f"
+          },
+          {
+            "from": "{0,1,2}",
+            "to": "{1,2}",
+            "input": "i"
+          },
+          {
+            "from": "{0,2}",
+            "to": "{0,2}",
+            "input": "f"
+          },
+          {
+            "from": "{0,2}",
+            "to": "{1,2}",
+            "input": "i"
+          },
+          {
+            "from": "{0}",
+            "to": "{0,2}",
+            "input": "f"
+          },
+          {
+            "from": "{0}",
+            "to": "{2}",
+            "input": "i"
+          },
+          {
+            "from": "{1,2}",
+            "to": "{0,1,2}",
+            "input": "f"
+          },
+          {
+            "from": "{1,2}",
+            "to": "{1,2}",
+            "input": "i"
+          },
+          {
+            "from": "{1}",
+            "to": "{0,1,2}",
+            "input": "f"
+          },
+          {
+            "from": "{1}",
+            "to": "{2}",
+            "input": "i"
+          },
+          {
+            "from": "{2}",
+            "to": "{2}",
+            "input": "f"
+          },
+          {
+            "from": "{2}",
+            "to": "{1}",
+            "input": "i"
+          }
+        ]
+      }
+    },
+    {"name": "Actual DFA after SCC",
+     "dfa": {
+       "alphabet": [
+         "f",
+         "i"
+       ],
+       "states": [
+         {
+           "accepting": true,
+           "name": "{0,1,2}",
+           "starting": true
+         },
+         {
+           "accepting": false,
+           "name": "{0,2}",
+           "starting": true
+         },
+         {
+           "accepting": false,
+           "name": "{0}",
+           "starting": true
+         },
+         {
+           "accepting": true,
+           "name": "{1,2}",
+           "starting": false
+         },
+         {
+           "accepting": true,
+           "name": "{1}",
+           "starting": false
+         },
+         {
+           "accepting": false,
+           "name": "{2}",
+           "starting": false
+         }
+       ],
+       "transitions": [
+         {
+           "from": "{0,1,2}",
+           "input": "f",
+           "to": "{0,1,2}"
+         },
+         {
+           "from": "{0,1,2}",
+           "input": "i",
+           "to": "{1,2}"
+         },
+         {
+           "from": "{0,2}",
+           "input": "f",
+           "to": "{0,2}"
+         },
+         {
+           "from": "{0,2}",
+           "input": "i",
+           "to": "{1,2}"
+         },
+         {
+           "from": "{0}",
+           "input": "f",
+           "to": "{0,2}"
+         },
+         {
+           "from": "{0}",
+           "input": "i",
+           "to": "{2}"
+         },
+         {
+           "from": "{1,2}",
+           "input": "f",
+           "to": "{0,1,2}"
+         },
+         {
+           "from": "{1,2}",
+           "input": "i",
+           "to": "{1,2}"
+         },
+         {
+           "from": "{1}",
+           "input": "f",
+           "to": "{0,1,2}"
+         },
+         {
+           "from": "{1}",
+           "input": "i",
+           "to": "{2}"
+         },
+         {
+           "from": "{2}",
+           "input": "f",
+           "to": "{2}"
+         },
+         {
+           "from": "{2}",
+           "input": "i",
+           "to": "{1}"
+         }
+       ],
+       "type": "DFA"
+     }},
+
+
+      {
+        "name": "Actual DFA for TFA test 1",
+        "dfa":
+                {
+                  "alphabet": [
+                    "a",
+                    "e"
+                  ],
+                  "states": [
+                    {
+                      "accepting": true,
+                      "name": "{1}",
+                      "starting": false
+                    },
+                    {
+                      "accepting": false,
+                      "name": "{0}",
+                      "starting": true
+                    },
+                    {
+                      "accepting": false,
+                      "name": "{3, 2, 4}",
+                      "starting": false
+                    }
+                  ],
+                  "transitions": [
+                    {
+                      "from": "{1}",
+                      "input": "e",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{1}",
+                      "input": "a",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{0}",
+                      "input": "e",
+                      "to": "{1}"
+                    },
+                    {
+                      "from": "{0}",
+                      "input": "a",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "e",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "a",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "e",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "a",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "e",
+                      "to": "{3, 2, 4}"
+                    },
+                    {
+                      "from": "{3, 2, 4}",
+                      "input": "a",
+                      "to": "{3, 2, 4}"
+                    }
+                  ],
+                  "type": "DFA"
+                }
+
+              }
+  ]
+}
